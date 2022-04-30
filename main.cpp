@@ -94,7 +94,20 @@ void deleteNode(Node* &tail,int value){
     }
 }
 
-
+bool isCircularList(Node* head){
+//    empty list wala
+    if(head==NULL){
+        return true;
+    }
+    Node* temp=head-> next;
+    while (temp!=NULL && temp!=head){
+        temp=temp -> next;
+    }
+    if (temp == NULL)
+        return false;
+    if (temp==head)
+        return true;
+}
 
 int main() {
 
@@ -102,28 +115,28 @@ int main() {
 
     insertNode(tail, 5, 3);
     print(tail);
-//    insertNode(tail, 3, 5);
-//    print(tail);
-//    insertNode(tail, 5, 7);
-//    print(tail);
-//    insertNode(tail, 7, 9);
-//    print(tail);
+    insertNode(tail, 3, 5);
+    print(tail);
+    insertNode(tail, 5, 7);
+    print(tail);
+    insertNode(tail, 7, 9);
+    print(tail);
 //    insertNode(tail, 5, 6);
 //    print(tail);
 //    insertNode(tail, 9, 10);
 //    print(tail);
 //    insertNode(tail, 3, 4);
 //    print(tail);
-    deleteNode(tail, 3);
-    print(tail);
+//    deleteNode(tail, 3);
+//    print(tail);
 //
 //
-//    if(isCircularList(tail)) {
-//        cout << " Linked List is Circular in nature" << endl;
-//    }
-//    else{
-//        cout << "Linked List is not Circular " << endl;
-//    }
+    if(isCircularList(tail)) {
+        cout << " Linked List is Circular in nature" << endl;
+    }
+    else{
+        cout << "Linked List is not Circular " << endl;
+    }
 
     return 0;
 }
